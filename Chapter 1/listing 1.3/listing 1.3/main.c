@@ -18,11 +18,11 @@ int main(int argc, const char * argv[]) {
     char message[256];
     char* result;
     
-    semitone_ratio = pow(2, 1.0/12);
-    c5 = 220.0 * pow(semitone_ratio, 3);
-    c0 = c5 * pow(0.5, 5);
+    semitone_ratio = pow(2, 1.0/12); //calc semitone
+    c5 = 220.0 * pow(semitone_ratio, 3); //calcs middle C
+    c0 = c5 * pow(0.5, 5); //calcs c0
     
-    printf("Enter MIDI note (0 - 127): ");
+    printf("Enter MIDI note (0 - 127): "); // gets input of MIDI note
     result = gets(message);
     
     
@@ -40,13 +40,13 @@ int main(int argc, const char * argv[]) {
     
     midiNote = atoi(message);
     
-    if(midiNote < 0 )
+    if(midiNote < 0 ) // out of range check
     {
         printf("Sorry - %s is a bad MIDI note number\n", message);
         return 1;
     }
     
-    if (midiNote > 127)
+    if (midiNote > 127) // out of range check
     {
         printf("SOrry - %s is beyond the MIDI range!\n", message);
         return 1;
